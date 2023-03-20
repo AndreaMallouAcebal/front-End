@@ -1,0 +1,50 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Editar animal</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="animalesForm"><br>
+      <div class="form-group">
+        <label>Nombre: </label>
+        <input type="text" [(ngModel)]="animal.nombre" name="nombre" id="nombre" formControlName="nombre" class="form-control">
+      </div><br>
+       <!--MENSAJE DE ERROR (REQUERIDO)-->
+       <div *ngIf="animalesForm.get('nombre')?.invalid && animalesForm.get('nombre')?.touched" class="alert alert-danger">El
+        campo nombre no puede estar vacío y su longitud no puede exceder los 15 caracteres</div>
+      <div class="form-group">
+        <label>Edad: </label>
+        <input type="number" [(ngModel)]="animal.edad" name="edad" id="edad" formControlName="edad" class="form-control">
+      </div><br>
+      <!--MENSAJE DE ERROR (REQUERIDO)-->
+      <div *ngIf="animalesForm.get('edad')?.invalid && animalesForm.get('edad')?.touched" class="alert alert-danger">El
+        campo edad no puede estar vacío y los valores deben oscilar entre 0 y 30</div>
+      <div class="form-group">
+        <label>Raza: </label>
+        <input type="text" [(ngModel)]="animal.raza" name="raza" id="raza" formControlName="raza" class="form-control">
+      </div><br>
+      <!--MENSAJE DE ERROR (REQUERIDO)-->
+      <div *ngIf="animalesForm.get('raza')?.invalid && animalesForm.get('raza')?.touched" class="alert alert-danger">El
+        campo raza no puede estar vacío y su longitud no puede exceder los 30 caracteres</div>
+       <div class="form-group">
+        <label>Descripción</label>
+        <input type="text"[(ngModel)]="animal.descripcion" name="descripcion" id="descripcion"  formControlName="descripcion" class="form-control">
+      </div><br>
+      <!--MENSAJE DE ERROR (REQUERIDO)-->
+      <div *ngIf="animalesForm.get('descripcion')?.invalid && animalesForm.get('descripcion')?.touched" class="alert alert-danger">El
+        campo descripción no puede estar vacío y su longitud no puede exceder los 150 caracteres</div>
+      <div class="form-group">
+        <label>Imagen</label>
+        <input type="file" name="imagenanimal" id="imagenanimal" (change)="uploadImage($event)" required class="form-control">
+        <input type="hidden" [(ngModel)]="animal.imagen" name="imagen" id="imagen"  formControlName="imagen" class="form-control">
+      </div><br>
+      <!--MENSAJE DE ERROR (REQUERIDO)-->
+      <div *ngIf="animalesForm.get('imagen')?.invalid && animalesForm.get('imagen')?.touched" class="alert alert-danger">El
+        campo imagen no puede estar vacío </div>
+      <div class="form-group">
+        <label>Tipo</label>
+        <input type="text"[(ngModel)]="animal.tipo" name="tipo" id="tipo" formControlName="tipo" class="form-control">
+      </div><br>
+      <!--MENSAJE DE ERROR (REQUERIDO)-->
+      <div *ngIf="animalesForm.get('tipo')?.invalid && animalesForm.get('tipo')?.touched" class="alert alert-danger">El
+        campo tipo no puede estar vacío y su longitud no puede exceder los 45 caracteres</div>
+      <button type="submit" class="btn btn-success" [disabled]="animalesForm.invalid" (click)="guardarAnimal(animal)" >Guardar</button>
+    </form>
+  </div><br>

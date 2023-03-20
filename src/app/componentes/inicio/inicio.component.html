@@ -1,0 +1,34 @@
+<app-carrusel></app-carrusel>
+
+  <h2>¡Conoce a nuestros amigos!</h2>
+<div class="contenedor">
+    <div class="for" *ngFor="let animal of animales"  >
+            <div class="card"  style="width: 25rem; margin: 6px;">
+                  <a routerLink="../detalles-animal/{{animal.id}}">  <img id="animalesid" [src]="animal.imagen" class="card-img-top" alt="animal"></a>
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{animal.nombre}}</h5>
+                        <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" routerLink="../animales/{{animal.id}}"></button>
+                        <button *ngIf="isAdmin" type="button" (click)="onClickEliminarAnimal(animal.id)"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                    </div>
+                </div>
+           </div>
+    </div>
+  </div>
+
+<div class="container">
+  <p>La Asociación "El amor no se compra" nace en 2023 con el objetivo de, en la medida de lo posible, ayudar en casos de desamparo y abandono de animales.
+      Nuestras labores irán orientadas a: buscar casas de acogida, manutención, gastos veterinarios y tramitación de adopciones.</p>
+    <p>Como somos una Asociación pequeña, por el momento contamos con un albergue reducido, por lo que necesitamos que nos ayudes para poder hacernos cargo de estos animales. 
+      Si tienes un lugar apto para acoger a algún animal, aunque sea unos días, siempre nos será de ayuda.
+      Estos animales necesitan conocer lo que es vivir en familia o volver a vivir en familia, encontrar respeto y cariño hasta que encuentran su familia definitiva.
+      Nosotras cubrimos todos los gastos veterinarios y de manutención.
+      </p>
+      <p>
+      <strong>En caso de querer ADOPTAR a uno de nuestros pequeñines, puedes pedir cita desde esta misma web, en el apartado de animales, haciendo click en aquel que más te interese.</strong>
+      </p>
+</div>
+<app-listar-patrocinadores></app-listar-patrocinadores>
+<div class="container">
+  <app-pie></app-pie>
+</div>

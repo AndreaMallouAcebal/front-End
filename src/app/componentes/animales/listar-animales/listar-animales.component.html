@@ -1,0 +1,30 @@
+<div id="contenedorMayor">
+  <h1>¡Os presentamos a nuestros amigos!
+    <button *ngIf="isAdmin" type="button" class="btn btn-sm btn-outline-secondary" routerLink="/registrar-animal">
+      Nuevo animal
+    </button>
+  </h1>
+
+  <a (click)="onClickPerros()"><img class="filtroImg" src="../../../../assets/img/perroFiltro.jpg" alt="perros"></a>
+  <a (click)="obtenerAnimales()"><img id="todos" src="../../../../assets/img/gatoPeroFiltro.jpg" alt="perros y gatos"></a>
+  <a (click)="onClickGatos()"><img class="filtroImg" src="../../../../assets/img/gatoFiltro.png" alt="gatos"></a>
+
+  <div class="contenedor">
+    <div class="for" *ngFor="let animal of animales">
+      <div class="card" style="width: 25rem; margin: 6px;">
+        <a routerLink="/detalles-animal/{{animal.id}}"> <img [src]="animal.imagen" class="card-img-top"
+            alt="animal"></a>
+        <div>
+          <div class="card-body">
+            <h5 class="card-title">{{animal.nombre}}</h5>
+            <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-pencil"
+              class="p-button-rounded p-button-success mr-2" routerLink="{{animal.id}}"></button>
+            <button *ngIf="isAdmin" type="button" (click)="onClickEliminarAnimal(animal.id)" pButton pRipple
+              icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-pie></app-pie>
+</div>

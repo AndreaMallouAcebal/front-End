@@ -1,0 +1,31 @@
+<div class="contenedor">
+  <div class="card">
+    <p-table [value]="roles" [tableStyle]="{'min-width': '50rem'}">
+      <ng-template pTemplate="caption">
+        <span>Lista de roles</span>
+        <button routerLink="/registrar-cita" id="nueva" style="margin-right: 20px;" pButton
+          class="p-button-rounded p-button-success mr-2">Nuevo rol</button>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rol>
+        <tr>
+          <td>{{rol.id}}</td>
+          <td>{{rol.nombre}}</td>
+          <td>
+            <button type="button" routerLink="{{rol.id}}" pButton pRipple icon="pi pi-pencil"
+              class="p-button-rounded p-button-success mr-2"></button>
+            <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+              (click)="onClickEliminar(rol.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<router-outlet></router-outlet>

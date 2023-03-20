@@ -1,0 +1,40 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Editar usuario</h3>
+  <form (ngSubmit)="onSubmit()" [formGroup]="usuariosForm"><br>
+    <div class="form-group">
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="usuario.nombre" name="nombre" id="nombre" formControlName="nombre"
+        class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="usuariosForm.get('nombre')?.invalid && usuariosForm.get('nombre')?.touched" class="alert alert-danger">
+      El campo nombre no puede estar vacío y su longitud no puede exceder los 45 caracteres</div>
+    <div class="form-group">
+      <label>Apellidos: </label>
+      <input type="text" [(ngModel)]="usuario.apellidos" name="apellidos" id="apellidos" formControlName="apellidos"
+        class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="usuariosForm.get('apellidos')?.invalid && usuariosForm.get('apellidos')?.touched" class="alert alert-danger">
+      El campo apellidos no puede estar vacío y su longitud no puede exceder los 45 caracteres</div>
+
+    <div class="form-group">
+      <label>Email: </label>
+      <input type="email" [(ngModel)]="usuario.email" name="email" id="email" formControlName="email"
+        class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="usuariosForm.get('email')?.invalid && usuariosForm.get('email')?.touched" class="alert alert-danger">
+      El campo email no puede estar vacío</div>
+    <div class="form-group">
+      <label>Dni</label>
+      <input type="text" [(ngModel)]="usuario.dni" name="dni" id="dni" formControlName="dni" class="form-control">
+    </div><br><br><br><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="usuariosForm.get('dni')?.invalid && usuariosForm.get('dni')?.touched" class="alert alert-danger">
+      El campo dni no puede estar vacío y su longitud ha de ser de 9 caracteres</div>
+      
+    <button type="submit" class="btn btn-success" [disabled]="usuariosForm.invalid"
+      (click)="guardarUsuario(usuario)">Guardar</button>
+  </form>
+</div><br>

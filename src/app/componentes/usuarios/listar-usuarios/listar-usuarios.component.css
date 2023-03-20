@@ -1,0 +1,24 @@
+*{
+    font-size: 18px;
+    color: #333333 ;
+}
+
+
+.contenedor{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+span{
+    font-size: 30px;
+}
+
+.card{
+    margin-top: 2%;
+}
+a{
+    color:sandybrown
+}
+#nueva{
+    float: right;
+}

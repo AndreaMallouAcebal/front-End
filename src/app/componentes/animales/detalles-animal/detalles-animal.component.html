@@ -1,0 +1,37 @@
+<section class="py-5">
+  <!-- añadimos icono de bootstrap para volver a animales -->
+  <a routerLink="/animales">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+    </svg>
+  </a>
+  <!--creamos una tarjeta para mostrar los detalles del animal-->
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center" id="contenedor">
+      <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{animal.imagen}}" alt="foto animal" /></div>
+      <div class="col-md-6">
+        <h1 class="nombre">{{animal.nombre}}</h1>
+        <hr>
+        <div class="raza"><p class="label">Raza: </p>
+          <span>{{animal.raza}}</span>
+        </div>
+        <div class="edad"><p class="label">Edad: </p>
+          <span>{{animal.edad}} años</span>
+        </div>
+        <p class="descripcion">{{animal.descripcion}}</p>
+        <div class="d-flex">
+          <!--añadimos un formulario para que los usuarios puedan pedir cita con el animal-->
+          <form [formGroup]="citasForm"><br>
+            <input class="input" *ngIf="isLogged" type="date" [(ngModel)]="cita.fecha" min="2023-19-03" name="fecha" id="fecha"
+              formControlName="fecha" class="form-control">
+            <button *ngIf="isLogged" type="button" class="btn btn-sm btn-outline-secondary"
+              [disabled]="citasForm.invalid" (click)="onClickGuardarCita()">Pedir cita</button>
+            <div *ngIf="!isLogged" class="alert alert-danger mt-3">Regístrese para pedir una cita</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

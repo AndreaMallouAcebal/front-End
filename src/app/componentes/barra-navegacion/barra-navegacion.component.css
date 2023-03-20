@@ -1,0 +1,21 @@
+
+img{
+    height: 100px;
+}
+*{
+    font-size: 24px;;
+}
+li{
+    padding-right: 6%;
+    list-style: none;
+}
+
+#iniciarsesion{
+    text-decoration: underline;
+}
+button{
+   color: dimgrey;
+}
+.nav-link{
+    padding: 2% !important;
+}

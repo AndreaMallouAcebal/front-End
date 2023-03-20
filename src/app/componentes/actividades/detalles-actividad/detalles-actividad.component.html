@@ -1,0 +1,40 @@
+<!-- título -->
+<h1>{{actividad.nombre}}</h1>
+
+<!-- cuerpo -->
+<div class="container">
+    <!-- datos de la actividad -->
+    <div class="contenedor">
+        <p-panel>
+            <ng-template pTemplate="header">
+                <h3>{{actividad.nombre}}</h3>
+            </ng-template>
+
+            <ng-template pTemplate="content">
+                <p>Fecha: {{actividad.fecha|date: 'dd/MM/yyyy'}}</p>
+                <hr>
+                <p>{{actividad.descripcion}}</p>
+
+            </ng-template>
+            <ng-template pTemplate="footer" *ngIf="!isPasado">
+                <!-- botón para apuntarse -->
+                <button *ngIf="isLogged&&!isApuntado" type="button" (click)="onClickApuntarse(actividad.id)"
+                    class="btn btn-sm btn-outline-secondary">Apuntarse</button>
+                <button *ngIf="isLogged&&isApuntado" type="button" (click)="onClickDesapuntarse(actividad.id)"
+                    class="btn btn-sm btn-outline-secondary">Desapuntarse</button>
+                    <!-- alerta es necesario registrarse -->
+                <div *ngIf="!isLogged" class="alert alert-danger mt-3">Registrese para apuntarse a una actividad</div>     
+            </ng-template>
+            <!-- alerta actividad no disponible -->
+            <div *ngIf="isLogged&&isPasado" class="alert alert-danger mt-3">Esta actividad ya no está disponible</div>
+        </p-panel>
+    </div>
+
+<!-- lista de usuarios registrados a la actividad -->
+    <div class="contenedor" *ngIf="isAdmin">
+        <h2>Usuarios registradados a la actividad</h2>
+        <ul *ngFor="let au of actividadesusuarios">
+            <li>{{au.usuario.nombre}}</li>
+        </ul>
+    </div>
+</div>

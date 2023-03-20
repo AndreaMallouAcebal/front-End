@@ -1,0 +1,41 @@
+#animalesid {
+  height: 300px;
+  object-fit: cover;
+  align-items: center;
+  opacity: 0.8;
+}
+.container{
+  align-content: center;
+  text-align: center;
+}
+.for{
+    align-content: center;
+    display: inline-block !important;
+    margin:0.5%
+}
+h2{
+  padding: 4%;
+  text-align: center;
+  color: dimgray
+}
+
+p{
+  margin-top: 5%;
+  margin-bottom: 1%;
+  text-align: justify;
+  font-size:1vw;
+}
+
+h4{
+  text-align: left;
+  padding:  6% 0% 4% 1%;
+  color: dimgray
+}
+#animalesid:hover{
+  opacity: 1;
+  -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+.contenedor{
+text-align: center !important;
+padding: 0% 0 2% 0;
+}

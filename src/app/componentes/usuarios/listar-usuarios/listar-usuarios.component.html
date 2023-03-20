@@ -1,0 +1,36 @@
+<div class="contenedor">
+  <div class="card">
+   <p-table [value]="usuarios" [tableStyle]="{'min-width': '50rem'}">
+       <ng-template pTemplate="caption">
+        <span>Lista de usuarios</span>
+        <button routerLink="/registrar-usuario" id="nueva" style="margin-right: 20px;" pButton class="p-button-rounded p-button-success mr-2">Nuevo usuario</button>
+       </ng-template>
+       <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Dni</th>
+          <th>Rol</th>
+          <th>Acciones<th>
+        </tr>
+       </ng-template>
+       <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.apellidos}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.dni}}</td>
+          <td>{{usuario.rol.nombre}}</td>
+          <td>
+           <button routerLink="{{usuario.id}}" style="margin-right: 20px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+           <button pButton id="eliminarT" pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="onClickEliminarUsuario(usuario.id)"></button>
+         </td>
+       </tr>
+       </ng-template>
+   </p-table>
+</div>
+</div>
+<router-outlet></router-outlet>

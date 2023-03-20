@@ -1,0 +1,39 @@
+<div class="col-md-6 offset-md-3">
+  <!-- título -->
+  <h3 class="text-center">Editar actividad</h3>
+  <form (ngSubmit)="onSubmit()" [formGroup]="actividadesForm"><br>
+    <div class="form-group">
+      <!-- campo nombre -->
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="actividad.nombre" name="nombre" id="nombre" formControlName="nombre"
+        class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="actividadesForm.get('nombre')?.invalid && actividadesForm.get('nombre')?.touched"
+      class="alert alert-danger">El
+      campo nombre no puede estar vacío y su longitud no puede exceder los 30 caracteres</div>
+    <div class="form-group">
+      <!-- campo fecha -->
+      <label>Fecha: </label>
+      <input type="date" [(ngModel)]="actividad.fecha" name="fecha" id="fecha" formControlName="fecha"
+        class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="actividadesForm.get('fecha')?.invalid && actividadesForm.get('fecha')?.touched"
+      class="alert alert-danger">El
+      campo fecha no puede estar vacío</div>
+      <!-- campo descripcion -->
+    <div class="form-group">
+      <label>Descripción</label>
+      <input type="text" [(ngModel)]="actividad.descripcion" name="descripcion" id="descripcion"
+        formControlName="descripcion" class="form-control">
+    </div><br>
+    <!--MENSAJE DE ERROR (REQUERIDO)-->
+    <div *ngIf="actividadesForm.get('descripcion')?.invalid && actividadesForm.get('descripcion')?.touched"
+      class="alert alert-danger">El
+      campo descripción no puede estar vacío ni exceder los 600 caracteres</div>
+      <!-- botón guardar -->
+    <button type="submit" class="btn btn-success" [disabled]="actividadesForm.invalid"
+      (click)="guardarActividad(actividad)">Guardar</button>
+  </form>
+</div><br>

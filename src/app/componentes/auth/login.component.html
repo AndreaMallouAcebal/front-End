@@ -1,0 +1,45 @@
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+  <h2>Has iniciado sesion</h2>
+</div>
+<ng-template #loggedOut>
+  <div class="container d-flex justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/login">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Registrarse</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate [formGroup]="loginForm">
+          <div class="form-group">
+            <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">{{errMsg}}</div>
+            <label for="userEmail">Email del Usuario</label>
+            <input type="email" name="userEmail" id="userEmail" class="form-control" formControlName="userEmail"
+              [(ngModel)]="userEmail" required pInputText>
+            <!--MENSAJE DE ERROR (REQUERIDO)-->
+            <div *ngIf="loginForm.get('userEmail')?.invalid && loginForm.get('userEmail')?.touched"
+              class="alert alert-danger">El campo email no puede estar vacío y el formato ha de ser correcto</div>
+
+          </div>
+          <div class="form-group">
+            <label for="contrasenia">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control" formControlName="password" [(ngModel)]="contrasenia" required
+              pInputText>
+              <!--MENSAJE DE ERROR (REQUERIDO)-->
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+            class="alert alert-danger">El campo contraseña no puede estar vacío y ha de tener mínimo 6 caracteres</div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-success btn-block" [disabled]="!loginForm.valid"> Iniciar sesion</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</ng-template>

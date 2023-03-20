@@ -1,0 +1,38 @@
+
+<div class="contenedor">
+   <div class="card">
+    <p-table [value]="citas" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+           <span>Lista de citas</span>
+           <button routerLink="/registrar-cita" id="nueva" style="margin-right: 20px;" pButton class="p-button-rounded p-button-success mr-2">Nueva cita</button>
+        </ng-template>
+        <ng-template pTemplate="header" >
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">fecha</th>
+              <th scope="col">Nombre del Animal</th>
+              <th scope="col">Nombre del Usuario</th>
+              <th scope="col">Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cita>
+             <tr>
+          <td>{{cita.id}}</td>
+          <td>{{cita.fecha|date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <a routerLink="../animales/{{cita.animal.id}}"> {{cita.animal.nombre}}</a>
+          </td>
+          <td>
+            <a routerLink="../usuarios/{{cita.usuario.id}}"> {{cita.usuario.nombre}}</a>
+          </td>
+          <td>
+            <button routerLink="{{cita.id}}" style="margin-right: 20px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+            <button id="eliminarT" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="onClickEliminarCita(cita.id)"></button>
+          </td>
+        </tr>
+        </ng-template>
+    </p-table>
+</div>
+</div>
+<router-outlet></router-outlet>
+  

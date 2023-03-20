@@ -1,0 +1,13 @@
+.card{
+    height: auto;
+    width: 400px;
+}
+
+label, button{
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+button{
+    font-size: 18px;
+}

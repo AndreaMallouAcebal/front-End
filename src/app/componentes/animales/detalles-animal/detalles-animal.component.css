@@ -1,0 +1,41 @@
+.edad, .raza, .input, .descripcion{
+  margin-bottom: 4%;
+  margin-top: 7%;
+}
+
+.nombre{
+  font-weight: bolder;
+}
+button{
+  margin-top:20%
+}
+#contenedor{
+  border-color: grey;
+  border-width: 0.003px ;
+  box-shadow: 5px;
+  padding: 5% 2% 5% 2%;
+  border-style: inset;
+  box-shadow: 30px 30px 2px 1px rgba(126, 126, 145, 0.2);
+}
+hr{
+ color: darkgrey;
+}
+a{
+  margin-left: 5%;
+  font-size: 20px;
+}
+img{
+  height: 500px;
+  object-fit: cover;
+  align-items: center;
+}
+svg{
+  color:gray;
+}
+span, .descripcion, .label{
+  font-size: 18px;
+  text-align: justify;
+}
+.label{
+  font-weight: bolder;
+}

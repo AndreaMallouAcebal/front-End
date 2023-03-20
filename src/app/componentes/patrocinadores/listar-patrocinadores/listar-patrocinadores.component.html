@@ -1,0 +1,16 @@
+<div class="container">
+  <h4>Patrocinadores <button *ngIf="isAdmin" type="button" class="btn btn-sm btn-outline-secondary" routerLink="/registrar-patrocinador">
+    Nuevo patrocinador</button>
+  </h4>
+  
+  <div class="row container">
+    <div class="col" id="columns" *ngFor="let patrocinador of patrocinadores">
+      <img src={{patrocinador.imagen}} class="figurepatrocinadores">
+      <figcaption>{{patrocinador.nombre}}</figcaption>
+      <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" routerLink="../patrocinadores/{{patrocinador.id}}"></button>
+      <button *ngIf="isAdmin" type="button" (click)="onClickEliminarPatrocinador(patrocinador.id)"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+  </div>
+  </div>
+  </div>
+ <router-outlet></router-outlet>
+  

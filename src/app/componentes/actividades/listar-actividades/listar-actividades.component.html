@@ -1,0 +1,27 @@
+<img src="../../../assets/img/maraton.jpg" alt="">
+<h1>Actividades <button *ngIf="isAdmin" type="button" class="btn btn-sm btn-outline-secondary"
+    routerLink="/registrar-actividad">Nueva</button></h1>
+<div class="container">
+  <div *ngFor="let actividad of actividades" id="contenedor">
+    <p-panel>
+      <ng-template pTemplate="header">
+        <h3>{{actividad.nombre}}</h3>
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <p>Fecha: {{actividad.fecha|date: 'dd/MM/yyyy'}}</p>
+
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" routerLink="{{actividad.id}}"></button>
+        <button *ngIf="isAdmin" type="button" (click)="onClickEliminarActividad(actividad.id)"
+        pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+        <button type="button" routerLink="/detalles-actividad/{{actividad.id}}" class="btn btn-sm btn-outline-secondary">Detalles</button>
+      </ng-template>
+    </p-panel>
+  </div>
+</div>
+<div class="container">
+  <app-pie></app-pie>
+</div>
+

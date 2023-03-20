@@ -1,0 +1,43 @@
+/* formato animales */
+img{
+  height: 300px;
+  object-fit: cover;
+  align-items: center;
+  opacity: 0.8;
+}
+
+/* agrandamos y subimos opacidad al pasar por encima */
+img:hover{
+  opacity: 1;
+  -webkit-transform:scale(1.1);transform:scale(1.1);
+  cursor:pointer;
+}
+
+/* hacemos que se muestren en linea */
+.for{
+  display: inline-block;
+  margin: 1%;
+}
+
+/* modificamos div contenedores */
+
+#contenedorMayor{
+  text-align: center !important;
+  padding: 0% 0 2% 0;
+}
+.contenedor{
+  width: 100%;
+  margin-top: 3%;
+}
+
+/* formato imagenes filtro */
+.filtroImg{
+  height: 150px;
+  margin: 2% 3% 0 3%;
+}
+#todos{
+  height: 90px;
+  margin-bottom: -7%;
+}
+
+
